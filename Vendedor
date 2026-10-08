@@ -1,0 +1,34 @@
+package fis.poo.Tienda;
+
+public class Vendedor{
+    public static int numVendedores = 0;
+    private String nombre;
+    private String cedula;
+    private int numVentas = 0;
+    
+       Vendedor (String nombre, String cedula){
+       this.nombre = nombre;
+       this.cedula = cedula;
+       numVendedores +=1;
+   }
+   public void setNumVentas(int ventasHechas){
+       this.numVentas = ventasHechas;
+   }
+   
+   public int getNumVentas(){
+       return this.numVentas;
+   }
+   
+   public String getNombre(){
+       return this.nombre;
+   }
+   
+   public void registrarVentasDiarias(int ventasDiarias ){
+       this.numVentas += ventasDiarias;
+   }
+       @Override
+   public String toString (){
+       return "Vendedor: " + this.nombre + " " + ", Número de cédula: " + this.cedula + " " + ", Número de ventas: " + numVentas;
+               
+   }
+}
