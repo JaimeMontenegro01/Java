@@ -1,0 +1,34 @@
+package fis.poo.Tienda;
+
+public class AppTienda {
+    public static void main(String[] args){
+        System.out.println("Hola tienda");
+        Producto.numeroProductos();
+        Producto p1 = new Producto(10.0, "USB 8 GB", "HP", 10);
+        //pl.cantidad = -100;
+        p1.imprimirDetalle();
+        p1.setCantidad(-100);
+        p1.setCantidad(20);
+        p1.imprimirDetalle();
+        Producto.numeroProductos();
+        Producto p2 = new Producto(10.0, "USB 16 GB", "HP", 10);
+        Producto.numeroProductos();
+
+        
+        System.out.println(p2.toString());
+        System.out.println(p2.getCantidad());
+        Vendedor v1 = new Vendedor("Dayana", "1711102596");
+        System.out.println(v1.toString());
+        
+        v1.setNumVentas(594);
+        System.out.println("Vendedor del mes:" + v1.getNombre() + ", Número de ventas totales: " + v1.getNumVentas());
+        //Dayana hizo 6 ventas en el día
+        v1.registrarVentasDiarias(6);
+        
+        //Dayana hizo 9 ventas en el día
+        v1.registrarVentasDiarias(9);
+        //Ventas de Dayana
+        System.out.println("Ventas de " + v1.getNombre() + ": " + v1.getNumVentas());
+    }
+}
+                                                  
