@@ -1,0 +1,60 @@
+package fis.poo.Tienda;
+
+import java.time.Clock;
+
+public class Producto {
+   static int numProductos = 0;
+   private double precio;
+   private String nombre;
+   private String marca;
+   private int cantidad;
+   //Constructor
+   Producto(double precio, String nombre, String marca, int cantidad){
+       this.precio = precio;
+       this.nombre = nombre;
+       this.marca = marca;
+       this.cantidad = cantidad;
+       numProductos += 1;
+   }
+   
+       //Getters y setters
+   public int getCantidad(){
+       return this.cantidad;
+   }
+   /**
+    * Este método me permite modificar la variable cantidad
+    * 
+    * @param cantidad indica la cantidad de un mismo producto
+    * @return no retorna nada
+    */
+   
+   public void setCantidad(int cantidad){
+       if (cantidad > 0){
+           this.cantidad = cantidad;
+       } else {
+           System.out.println("La cantidad no es valida");
+       }
+   }
+   
+   public void imprimirDetalle(){
+       System.out.println("Producto" + " " + this.nombre + " , marca" + this.marca + ", cantidad " + this.cantidad);
+   }
+   
+    @Override
+   public String toString (){
+       return "Producto" + " " + this.nombre + " , marca" + this.marca + ", cantidad " + this.cantidad;
+   }
+   
+   public static void numeroProductos(){
+       System.out.println("Numero de productos" + Producto.numProductos);
+       
+   }
+   
+   public void prueba (){
+       numeroProductos();
+   }
+   
+   public void prueba1 (){
+      System.out.println("");
+}
+}
