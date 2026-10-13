@@ -1,0 +1,34 @@
+//Ejercicio 1 
+@startuml
+skinparam classAttributeIconSize 0
+class CuentaBancaria {
+  - numero : String
+  - titular : String
+  - saldo : double  = 0
+  - {static} totalCuentas : int
+  + CuentaBancaria (numero : String, titular : String)
+  - boolean depositar (monto : double)
+  - boolean retirar (monto : double)  
+  + double getSaldo ()
+  + {static} int getTotalCuentas ()
+}
+note right of CuentaBancaria: "El saldo nunca puede ser negativo"
+@enduml
+
+//Ejercicio 2 
+@startuml
+'Clases:
+class Persona
+class Pasaporte
+class Vuelo
+class Pasajero
+class Avion
+class Asiento
+class Equipo
+class Jugador
+'Asociaciones:
+Persona "1" -- "0..1" Pasaporte : tiene >
+Vuelo "*" -- "1..*" Pasajero : transporta >
+Avion "1" -- "50..*" Asiento : dispone >
+Equipo "1" -- "11..25" Jugador : inscribe >
+@enduml
