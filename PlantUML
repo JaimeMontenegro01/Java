@@ -1,4 +1,4 @@
-//Ejercicio 1 
+'Ejercicio 1 
 @startuml
 skinparam classAttributeIconSize 0
 class CuentaBancaria {
@@ -15,7 +15,7 @@ class CuentaBancaria {
 note right of CuentaBancaria: "El saldo nunca puede ser negativo"
 @enduml
 
-//Ejercicio 2 
+'Ejercicio 2 
 @startuml
 'Clases:
 class Persona
@@ -31,4 +31,58 @@ Persona "1" -- "0..1" Pasaporte : tiene >
 Vuelo "*" -- "1..*" Pasajero : transporta >
 Avion "1" -- "50..*" Asiento : dispone >
 Equipo "1" -- "11..25" Jugador : inscribe >
+@enduml
+
+'Ejercicio 3
+@startuml
+skinparam classAttributeIconSize 0
+
+class Universidad
+class Facultad
+class Profesores
+class Factura { 
+- nombre : String
+- marca : String
+- precio : double
+- cantidad : int
++ calcularTotal()
+}
+class Equipo
+class LineaFactura
+class Jugadores
+class CalculadoraIVA {
++ {static} double calcular(base : double) 
+}
+
+'Asociaciones
+Universidad "1" *-- "1..*" Facultad : contiene >
+Facultad "1" o-- "1..*" Profesores : contrata >
+Equipo "1" -- "11..23" Jugadores : convoca >
+Factura ..> CalculadoraIVA
+Factura "1" -- "4..*" LineaFactura : tiene >
+@enduml
+
+'Ejercicio4 
+@startuml
+class Cliente{
+- cedula : String
+- nombre : String
+}
+class Pedido{
+- numero : int
+- Cliente : cliente
+}
+class Profesor {
+- nombre : String
+- cursos : List<Curso>
++ asignarCurso(c: Curso)
+}
+class Curso {
+- nombre : String
+- Profesor : profesor
+}
+'Asociaciones
+Curso "1" -- "*" Profesor : tiene 
+Pedido "1" -- "1..*" Cliente : tiene <
+
 @enduml
