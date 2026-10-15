@@ -1,0 +1,50 @@
+Ejercicio 9
+@startuml
+skinparam classAttributeIconSize 0
+class Casa {
+- direccion : String
+}
+class Habitacion {
+- metros : double
+}
+class Propietario {
+- nombre : String
+}
+
+Casa "1" *-- "1..*" Habitacion : tiene >
+Propietario "1..*" -- "*" Casa : es dueño de >
+ 
+@enduml
+
+Ejercicio 10
+@startuml
+class Universidad
+class Facultad
+class Carrera
+class Malla
+class Asignatura{
++ Prerrequisito ()
++ Paralelos ()
++ Cupos ()
+}
+class Profesor 
+class Aula 
+class Paralelo {
++ Codigo ()
++ CupoMaximo ()
+}
+class Estudiante {
++ {static} int matricula()
+}
+
+'Asociaciones
+
+Universidad "1" -- "1..*" Facultad : Organizada >
+Facultad "1" -- "1..*" Carrera : Contiene >
+Carrera "1" -- "1" Malla : Tiene >
+Malla "1" -- "1..*"Asignatura : Tiene >
+Asignatura "1" -- "1..*" Periodo : Abre >
+Profesor "1" -- "1..*" Aula  : Dicta 
+Aula"1" -- "1..*"Paralelo : Usa >
+
+@enduml
