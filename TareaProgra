@@ -22,29 +22,38 @@ class Universidad
 class Facultad
 class Carrera
 class Malla
-class Asignatura{
-+ Prerrequisito ()
-+ Paralelos ()
-+ Cupos ()
+class Asignatura {
+  - creditos : int 
 }
 class Profesor 
 class Aula 
 class Paralelo {
-+ Codigo ()
-+ CupoMaximo ()
+  - codigo : String
+  - cupoMaximo : int 
 }
-class Estudiante {
-+ {static} int matricula()
+class Estudiante
+class Matricula {
+  + calcularTotalCreditos() : int 
 }
 
 'Asociaciones
+'1er Parrafo
+Universidad "1" *-- "1..*" Facultad : Organizada >
+Facultad "1" o-- "1..*" Carrera : Posee >
+Carrera "1" *-- "1" Malla : Tiene >
+Malla "1" *-- "1..*"Asignatura : Contiene >
+'Segun gemini lo de abajo es la linea de prerrequisitos, no le se como hacer
+Asignatura "0..*" --> "0..*" Asignatura : Prerrequisitos
 
-Universidad "1" -- "1..*" Facultad : Organizada >
-Facultad "1" -- "1..*" Carrera : Contiene >
-Carrera "1" -- "1" Malla : Tiene >
-Malla "1" -- "1..*"Asignatura : Tiene >
+'2do Parrafo
 Asignatura "1" -- "1..*" Periodo : Abre >
-Profesor "1" -- "1..*" Aula  : Dicta 
-Aula"1" -- "1..*"Paralelo : Usa >
+Profesor "1" -- "1..*" Paralelo  : Dicta >
+Aula"1" -- "0..*" Paralelo : Dispone <
+
+'3er Parrafo
+Estudiante "1" --> "1" Carrera : Pertenece >
+Estudiante "1" -- "1" Matricula : Realiza > 
+Matricula "1" -- "1..7" Paralelo : Inscribe > 
+Matricula "*" --> "1" Periodo : Corresponde >
 
 @enduml
