@@ -41,6 +41,7 @@ class Matricula {
 Universidad "1" *-- "1..*" Facultad : Organizada >
 Facultad "1" o-- "1..*" Carrera : Posee >
 Carrera "1" *-- "1" Malla : Tiene >
+'Aqui abajo, si fuera una unica asignatura que solo existe en esa malla podria ser como que si se elimina la malla deja de existir esa asignatura?
 Malla "1" *-- "1..*"Asignatura : Contiene >
 'Segun gemini lo de abajo es la linea de prerrequisitos, no le se como hacer
 Asignatura "0..*" --> "0..*" Asignatura : Prerrequisitos
@@ -55,5 +56,5 @@ Estudiante "1" --> "1" Carrera : Pertenece >
 Estudiante "1" -- "1" Matricula : Realiza > 
 Matricula "1" -- "1..7" Paralelo : Inscribe > 
 Matricula "*" --> "1" Periodo : Corresponde >
-
+'Si hacen algun cambio le comentan como estas cosas, para saber que cambiaron
 @enduml
