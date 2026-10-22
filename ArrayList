@@ -1,0 +1,101 @@
+//Ejemplo 1
+package List;
+
+import java.util.ArrayList;
+
+public class Ejemplo1 {
+    public static void main (String [] args){
+        numeros ();
+    }
+    
+    public static void numeros(){
+        ArrayList<Integer> nums = new ArrayList<>();
+        nums.add(10);
+        nums.add(20);
+        nums.add(40);
+        nums.add(609);
+        nums.add(1);
+        nums.add(2, 30);
+        System.out.println(nums);
+        nums.remove(1);
+        System.out.println(nums);
+        nums.remove(Integer.valueOf(1));
+        System.out.println(nums);
+        System.out.println(nums.get(3));
+    }
+    
+    public static void animales (){
+        ArrayList <String> animales = new ArrayList<>();
+        animales.add("Gato");
+        animales.add("Perro");
+        animales.add("Pinguino");
+        animales.add(1, "Mapache");
+        System.out.println(animales);
+        System.out.println("Tamanio de animales " + animales.size());
+        System.out.println("Tercer animal " + animales.get(2));
+        animales.set(0, "Passer domesticus");
+        System.out.println(animales);
+        if (animales.remove("Vaca")){
+            System.out.println("Vaca eliminada");
+        } else {
+            System.out.println("No existe tal vaca");
+        }
+        animales.remove("Perro");
+        System.out.println(animales);
+        System.out.println("Existe alguna vaca? " + animales.contains("Vaca"));
+        System.out.println("Existe algun Passer domesticus? " + animales.contains("Passer domesticus"));
+        animales.add("Pinguino");
+        /* System.out.println(animales);
+        animales.remove("Pinguino");
+        System.out.println(animales);*/
+        System.out.println("Posicion de la vaca " + animales.indexOf("Vaca"));
+        System.out.println("Posicion del pinguino " + animales.indexOf("Pinguino"));
+        int contador = 0;
+        for (var a : animales){
+            if (a.equals("Pinguino")){
+                contador++;
+            }
+        }
+        System.out.println("Hay " + contador + " Pinguinos");
+        animales.clear();
+        System.out.println(animales);
+        System.out.println("Esta vacia la lista? " + animales.isEmpty());
+    }
+    
+}
+
+//Notas
+package List;
+
+import java.util.ArrayList;
+
+
+public class Notas {
+    static final double NOTA_APROBACION = 20.0;
+    public static void main(String[] args){
+        ArrayList <Double> notas = new ArrayList<>();
+        notas.add(15.5);
+        notas.add(12.0);
+        notas.add(18.25);
+        notas.add(9.75);
+        notas.add(14.0);
+        notas.add(16.5);
+        System.out.println(notas);
+        
+        //calcular promedio
+        System.out.println("El promedio es: " + promedio(notas) );
+
+        //calcular mayor
+        //calcular menor
+        //contar Aprobados
+        //conat Sobre el Promedio
+    }
+    
+    public static double promedio(ArrayList<Double> notas){
+        double suma = 0.0;
+        for (double n: notas){
+            suma += n;          
+        }
+        return suma/notas.size();
+    }
+}
